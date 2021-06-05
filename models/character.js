@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const characterSchema = new Schema(
   {
+    uid: String,
     name: String,
     race: String,
     class: String,
