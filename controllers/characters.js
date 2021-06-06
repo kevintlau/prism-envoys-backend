@@ -1,14 +1,14 @@
 const Character = require("../models/character");
 
 const index = (req, res) => {
-  Character.find({}, (err, characters) => {
+  Character.find({uid: req.query.uid}, (err, characters) => {
     res.status(200).json(characters);
   });
 };
 
 const create = (req, res) => {
   Character.create(req.body, (err, character) => {
-    res.status(200).json(character);
+    res.status(201).json(character);
   });
 };
 
