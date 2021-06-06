@@ -12,7 +12,15 @@ const create = (req, res) => {
   });
 };
 
+const deleteChar = (req, res) => {
+  Character.findByIdAndDelete(req.params.id, (err, character) => {
+    req.query.uid = character.uid;
+    index(req, res);
+  })
+}
+
 module.exports = {
   index,
   create,
+  delete: deleteChar,
 };
