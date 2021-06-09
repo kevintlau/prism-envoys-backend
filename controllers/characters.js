@@ -13,7 +13,7 @@ const create = (req, res) => {
 };
 
 const select = (req, res) => {
-  Character.find({ _id: req.params.id }, (err, character) => {
+  Character.findOne({ _id: req.params.id }, (err, character) => {
     res.status(200).json(character);
   });
 };
