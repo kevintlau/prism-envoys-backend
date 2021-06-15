@@ -12,12 +12,14 @@ const create = (req, res) => {
   });
 };
 
+// equivalent to "read"
 const select = (req, res) => {
   Character.findOne({ _id: req.params.id }, (err, character) => {
     res.status(200).json(character);
   });
 };
 
+// equivalent to "update"
 const save = (req, res) => {
   Character.findByIdAndUpdate(req.params.id, req.body, (err, character) => {
     req.query.uid = character.uid;
